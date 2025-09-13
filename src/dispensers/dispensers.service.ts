@@ -109,8 +109,6 @@ export class DispensersService {
 
       brand: updateDispenserDto.brand,
 
-      Brand: updateDispenserDto.Brand,
-
       name: updateDispenserDto.name,
     });
   }

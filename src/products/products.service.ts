@@ -1,8 +1,8 @@
 import { TanksService } from '../tanks/tanks.service';
 import { Tank } from '../tanks/domain/tank';
 
-import { DepotProductsService } from '../depot-products/depot-products.service';
-import { DepotProduct } from '../depot-products/domain/depot-product';
+// import { DepotProductsService } from '../depot-products/depot-products.service';
+// import { DepotProduct } from '../depot-products/domain/depot-product';
 
 import { CategoriesService } from '../categories/categories.service';
 import { Category } from '../categories/domain/category';
@@ -30,8 +30,8 @@ export class ProductsService {
     @Inject(forwardRef(() => TanksService))
     private readonly tankService: TanksService,
 
-    @Inject(forwardRef(() => DepotProductsService))
-    private readonly depotProductService: DepotProductsService,
+    // @Inject(forwardRef(() => DepotProductsService))
+    // private readonly depotProductService: DepotProductsService,
 
     private readonly categoryService: CategoriesService,
 
@@ -57,18 +57,18 @@ export class ProductsService {
     }
     const TankRef = TankRefObject;
 
-    const DepotProductRefObject = await this.depotProductService.findById(
-      createProductDto.DepotProductRef.id,
-    );
-    if (!DepotProductRefObject) {
-      throw new UnprocessableEntityException({
-        status: HttpStatus.UNPROCESSABLE_ENTITY,
-        errors: {
-          DepotProductRef: 'notExists',
-        },
-      });
-    }
-    const DepotProductRef = DepotProductRefObject;
+    // const DepotProductRefObject = await this.depotProductService.findById(
+    //   createProductDto.DepotProductRef.id,
+    // );
+    // if (!DepotProductRefObject) {
+    //   throw new UnprocessableEntityException({
+    //     status: HttpStatus.UNPROCESSABLE_ENTITY,
+    //     errors: {
+    //       DepotProductRef: 'notExists',
+    //     },
+    //   });
+    // }
+    // const DepotProductRef = DepotProductRefObject;
 
     let ProductCat: Category | null | undefined = undefined;
 
@@ -113,7 +113,7 @@ export class ProductsService {
       // <creating-property-payload />
       TankRef,
 
-      DepotProductRef,
+      // DepotProductRef,
 
       ProductCat,
 
@@ -182,22 +182,22 @@ export class ProductsService {
       TankRef = TankRefObject;
     }
 
-    let DepotProductRef: DepotProduct | undefined = undefined;
+    // let DepotProductRef: DepotProduct | undefined = undefined;
 
-    if (updateProductDto.DepotProductRef) {
-      const DepotProductRefObject = await this.depotProductService.findById(
-        updateProductDto.DepotProductRef.id,
-      );
-      if (!DepotProductRefObject) {
-        throw new UnprocessableEntityException({
-          status: HttpStatus.UNPROCESSABLE_ENTITY,
-          errors: {
-            DepotProductRef: 'notExists',
-          },
-        });
-      }
-      DepotProductRef = DepotProductRefObject;
-    }
+    // if (updateProductDto.DepotProductRef) {
+    //   const DepotProductRefObject = await this.depotProductService.findById(
+    //     updateProductDto.DepotProductRef.id,
+    //   );
+    //   if (!DepotProductRefObject) {
+    //     throw new UnprocessableEntityException({
+    //       status: HttpStatus.UNPROCESSABLE_ENTITY,
+    //       errors: {
+    //         DepotProductRef: 'notExists',
+    //       },
+    //     });
+    //   }
+    //   DepotProductRef = DepotProductRefObject;
+    // }
 
     let ProductCat: Category | null | undefined = undefined;
 
@@ -242,7 +242,7 @@ export class ProductsService {
       // <updating-property-payload />
       TankRef,
 
-      DepotProductRef,
+      // DepotProductRef,
 
       ProductCat,
 

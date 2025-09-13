@@ -1,5 +1,5 @@
-import { DepotProductsService } from '../depot-products/depot-products.service';
-import { DepotProduct } from '../depot-products/domain/depot-product';
+// import { DepotProductsService } from '../depot-products/depot-products.service';
+// import { DepotProduct } from '../depot-products/domain/depot-product';
 
 import {
   // common
@@ -17,30 +17,26 @@ import { Depot } from './domain/depot';
 
 @Injectable()
 export class DepotsService {
-  constructor(
-    @Inject(forwardRef(() => DepotProductsService))
-    private readonly depotProductService: DepotProductsService,
-
-    // Dependencies here
-    private readonly depotRepository: DepotRepository,
-  ) {}
+constructor(
+  private readonly depotRepository: DepotRepository,
+) {}
 
   async create(createDepotDto: CreateDepotDto) {
     // Do not remove comment below.
     // <creating-property />
 
-    const DepotProductRefObject = await this.depotProductService.findById(
-      createDepotDto.DepotProductRef.id,
-    );
-    if (!DepotProductRefObject) {
-      throw new UnprocessableEntityException({
-        status: HttpStatus.UNPROCESSABLE_ENTITY,
-        errors: {
-          DepotProductRef: 'notExists',
-        },
-      });
-    }
-    const DepotProductRef = DepotProductRefObject;
+    // const DepotProductRefObject = await this.depotProductService.findById(
+    //   createDepotDto.DepotProductRef.id,
+    // );
+    // if (!DepotProductRefObject) {
+    //   throw new UnprocessableEntityException({
+    //     status: HttpStatus.UNPROCESSABLE_ENTITY,
+    //     errors: {
+    //       DepotProductRef: 'notExists',
+    //     },
+    //   });
+    // }
+    // const DepotProductRef = DepotProductRefObject;
 
     return this.depotRepository.create({
       // Do not remove comment below.
@@ -49,7 +45,7 @@ export class DepotsService {
 
       adresse: createDepotDto.adresse,
 
-      DepotProductRef,
+      // DepotProductRef,
 
       name: createDepotDto.name,
     });
@@ -84,22 +80,22 @@ export class DepotsService {
     // Do not remove comment below.
     // <updating-property />
 
-    let DepotProductRef: DepotProduct | undefined = undefined;
+    // let DepotProductRef: DepotProduct | undefined = undefined;
 
-    if (updateDepotDto.DepotProductRef) {
-      const DepotProductRefObject = await this.depotProductService.findById(
-        updateDepotDto.DepotProductRef.id,
-      );
-      if (!DepotProductRefObject) {
-        throw new UnprocessableEntityException({
-          status: HttpStatus.UNPROCESSABLE_ENTITY,
-          errors: {
-            DepotProductRef: 'notExists',
-          },
-        });
-      }
-      DepotProductRef = DepotProductRefObject;
-    }
+    // if (updateDepotDto.DepotProductRef) {
+    //   const DepotProductRefObject = await this.depotProductService.findById(
+    //     updateDepotDto.DepotProductRef.id,
+    //   );
+    //   if (!DepotProductRefObject) {
+    //     throw new UnprocessableEntityException({
+    //       status: HttpStatus.UNPROCESSABLE_ENTITY,
+    //       errors: {
+    //         DepotProductRef: 'notExists',
+    //       },
+    //     });
+    //   }
+    //   DepotProductRef = DepotProductRefObject;
+    // }
 
     return this.depotRepository.update(id, {
       // Do not remove comment below.
@@ -108,7 +104,7 @@ export class DepotsService {
 
       adresse: updateDepotDto.adresse,
 
-      DepotProductRef,
+      // DepotProductRef,
 
       name: updateDepotDto.name,
     });

@@ -57,11 +57,11 @@ export class ProductMapper {
       );
     }
 
-    if (domainEntity.DepotProductRef) {
-      persistenceEntity.DepotProductRef = DepotProductMapper.toPersistence(
-        domainEntity.DepotProductRef,
-      );
-    }
+    // if (domainEntity.DepotProductRef) {
+    //   persistenceEntity.DepotProductRef = DepotProductMapper.toPersistence(
+    //     domainEntity.DepotProductRef,
+    //   );
+    // }
 
     if (domainEntity.ProductCat) {
       persistenceEntity.ProductCat = CategoryMapper.toPersistence(
