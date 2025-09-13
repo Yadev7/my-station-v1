@@ -6,21 +6,21 @@ import {
   Patch,
   Param,
   Delete,
-  UseGuards,
+  // UseGuards,
   Query,
 } from '@nestjs/common';
 import { NozzlesService } from './nozzles.service';
 import { CreateNozzleDto } from './dto/create-nozzle.dto';
 import { UpdateNozzleDto } from './dto/update-nozzle.dto';
 import {
-  ApiBearerAuth,
+  // ApiBearerAuth,
   ApiCreatedResponse,
   ApiOkResponse,
   ApiParam,
   ApiTags,
 } from '@nestjs/swagger';
 import { Nozzle } from './domain/nozzle';
-import { AuthGuard } from '@nestjs/passport';
+// import { AuthGuard } from '@nestjs/passport';
 import {
   InfinityPaginationResponse,
   InfinityPaginationResponseDto,
