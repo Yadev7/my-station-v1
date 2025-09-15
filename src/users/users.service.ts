@@ -116,6 +116,8 @@ export class UsersService {
     return this.usersRepository.create({
       // Do not remove comment below.
       // <creating-property-payload />
+      loginName: createUserDto.loginName,
+
       firstName: createUserDto.firstName,
       lastName: createUserDto.lastName,
       email: email,
@@ -270,6 +272,8 @@ export class UsersService {
     return this.usersRepository.update(id, {
       // Do not remove comment below.
       // <updating-property-payload />
+      loginName: updateUserDto.loginName,
+
       firstName: updateUserDto.firstName,
       lastName: updateUserDto.lastName,
       email,

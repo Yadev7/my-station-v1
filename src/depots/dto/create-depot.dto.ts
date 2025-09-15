@@ -19,7 +19,6 @@ import {
   // decorators here
   Type,
 } from 'class-transformer';
-
 export class CreateDepotDto {
   @ApiProperty({
     required: false,

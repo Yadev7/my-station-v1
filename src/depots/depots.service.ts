@@ -17,9 +17,7 @@ import { Depot } from './domain/depot';
 
 @Injectable()
 export class DepotsService {
-constructor(
-  private readonly depotRepository: DepotRepository,
-) {}
+  constructor(private readonly depotRepository: DepotRepository) {}
 
   async create(createDepotDto: CreateDepotDto) {
     // Do not remove comment below.

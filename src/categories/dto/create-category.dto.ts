@@ -2,7 +2,6 @@ import {
   // decorators here
   IsNotEmpty,
   IsString,
-  IsOptional,
 } from 'class-validator';
 
 import {
@@ -18,6 +17,4 @@ export class CreateCategoryDto {
   @IsNotEmpty()
   @IsString()
   name: string;
-
-  // Don't forget to use the class-validator decorators in the DTO properties.
 }

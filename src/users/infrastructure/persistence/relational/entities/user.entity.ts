@@ -24,6 +24,12 @@ export class UserEntity extends EntityRelationalHelper {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column({
+    nullable: true,
+    type: String,
+  })
+  loginName?: string | null;
+
   // For "string | null" we need to use String type.
   // More info: https://github.com/typeorm/typeorm/issues/2567
   @Column({ type: String, unique: true, nullable: true })
