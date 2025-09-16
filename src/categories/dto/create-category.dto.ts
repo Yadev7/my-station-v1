@@ -17,4 +17,8 @@ export class CreateCategoryDto {
   @IsNotEmpty()
   @IsString()
   name: string;
+
+  @ApiProperty({ required: false, type: String, nullable: true })
+  @IsString()
+  parentId?: string;
 }

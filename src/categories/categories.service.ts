@@ -15,14 +15,22 @@ export class CategoriesService {
     private readonly categoryRepository: CategoryRepository,
   ) {}
 
-  async create(createCategoryDto: CreateCategoryDto) {
+  async create(createCategorieDto: CreateCategoryDto) {
     // Do not remove comment below.
     // <creating-property />
 
     return this.categoryRepository.create({
       // Do not remove comment below.
       // <creating-property-payload />
-      name: createCategoryDto.name,
+      name: createCategorieDto.name,
+      parent: createCategorieDto.parentId
+        ? {
+            id: createCategorieDto.parentId,
+            name: '',
+            createdAt: new Date(),
+            updatedAt: new Date(),
+          }
+        : null,
     });
   }
 
